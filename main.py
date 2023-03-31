@@ -1,3 +1,4 @@
+import pandas as pd
 import numpy as np
 
 #headers are genres of the elements in a column

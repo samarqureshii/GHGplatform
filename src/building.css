@@ -1,0 +1,29 @@
+html{
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+    background: #000000;
+    padding:0;
+    margin:0;
+  
+  }
+  .icon{
+    font-family:fontawesome;
+    font-weight:bold;
+    font-size:30px;
+  
+  }
+  .goal,.completed{
+    font-family: 'Roboto','Myriad Set Pro', 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+    fill:white;
+    text-anchor:middle;
+  }
+  .goal{
+    font-size: 30px;
+  
+  
+  }
+  .completed{
+    font-size: 95px;
+  }

@@ -1,0 +1,29 @@
+:root {
+    --space-color: #0f2437;
+    --earth-water-color: #2276bc;
+    --earth-land-color: #65c547;
+    --earth-cloud-color: #FFF;
+    --earth-rotation: 20000ms;
+    --cloud-rotation: 30000ms;
+    
+    --moon-color: #e6e8d2;
+  }
+
+body {
+	background: linear-gradient(-45deg, #ffffff, #c2e2f8, rgb(145, 180, 194), #a0b1bc);
+	background-size: 400% 400%;
+	animation: gradient 30s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

@@ -1,7 +1,7 @@
 .tab-three{
   #cloud1 {
    animation-name: clouds;
-   animation-duration: 4.5s;
+   animation-duration: 10s;
          animation-delay: 0.5s;
    animation-fill-mode: both;
    animation-iteration-count: infinite;
@@ -11,7 +11,7 @@
  }
   #cloud2 {
    animation-name: clouds;
-   animation-duration: 4s;
+   animation-duration: 10s;
    animation-delay: 0.5s;
    animation-fill-mode: both;
    animation-iteration-count: infinite;
@@ -21,7 +21,7 @@
  }
   #cloud3 {
    animation-name: clouds;
-   animation-duration: 5s;
+   animation-duration: 10s;
    animation-fill-mode: both;
    animation-iteration-count: infinite;
    animation-timing-function: linear;

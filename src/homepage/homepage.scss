@@ -1,0 +1,105 @@
+.tab-three{
+  #cloud1 {
+   animation-name: clouds;
+   animation-duration: 4.5s;
+         animation-delay: 0.5s;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   transform-origin: center center;
+   animation-direction: alternate;
+ }
+  #cloud2 {
+   animation-name: clouds;
+   animation-duration: 4s;
+   animation-delay: 0.5s;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   transform-origin: center center;
+   animation-direction: reverse;
+ }
+  #cloud3 {
+   animation-name: clouds;
+   animation-duration: 5s;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   transform-origin: center center;
+   animation-direction: reverse;
+ }
+   #cloack{
+     animation-name: dialspin;
+   animation-duration: 3s;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   transform-origin: center center;
+   animation-direction: reverse;
+ }
+    #marker{
+     animation-name: bounceIn;
+   animation-duration: 3s;
+   animation-fill-mode: both;
+   animation-timing-function: linear;
+   transform-origin: center center;
+ } 
+   #city {
+   animation-name: city;
+   animation-duration: 0.5s;
+   animation-fill-mode: both;
+   animation-timing-function: linear;
+   transform-origin: center center;
+ }
+ }
+ @-webkit-keyframes clouds {
+   from {
+     transform: translateX(0);
+   }
+   50% {
+     transform: translateX(50%);
+   }
+   to {
+     transform: translateX(0);
+   }
+ }
+ @-webkit-keyframes city {
+   from {
+     transform: translateY(100px);
+   }
+   to {
+     transform: translateY(0);
+   }
+ }
+ @keyframes bounceIn {
+   from, 20%, 40%, 60%, 80%, to {
+     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+   }
+   0% {
+     opacity: 0;
+     transform: scale3d(0.3, 0.3, 0.3);
+   }
+   20% {
+     transform: scale3d(1.1, 1.1, 1.1);
+   }
+   40% {
+     transform: scale3d(0.9, 0.9, 0.9);
+   }
+   60% {
+     opacity: 1;
+     transform: scale3d(1.03, 1.03, 1.03);
+   }
+   80% {
+     transform: scale3d(0.97, 0.97, 0.97);
+   }
+   to {
+     opacity: 1;
+     transform: scale3d(1, 1, 1);
+   }
+ }
+ @-webkit-keyframes dialspin  {
+   0% {-webkit-transform: rotate(-0deg)}
+   100% { -webkit-transform: rotate(-360deg) }
+ }
+ 
+ 

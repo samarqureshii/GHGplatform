@@ -241,7 +241,7 @@ body { margin: 0; padding: 0; }
 
         // Create a popup, but don't add it to the map yet.
         const popup = new mapboxgl.Popup({
-            closeButton: false,
+            closeButton: true,
             closeOnClick: false
         });
 
@@ -261,10 +261,6 @@ body { margin: 0; padding: 0; }
             popup.setLngLat(coordinates).setHTML(description).addTo(map);
         });
 
-        map.on('mouseleave', 'places', () => {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-        });
     });
  
 // Add the control to the map.

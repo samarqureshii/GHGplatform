@@ -10,43 +10,52 @@
   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-  
+  <script src="https://cdn.amcharts.com/lib/4/plugins/export/export.js"></script>
+  <link rel="stylesheet" href="https://cdn.amcharts.com/lib/4/plugins/export/export.css" type="text/css" media="all" /> 
   <!-- Chart code -->
   <script>
+  // Sample CSV data
+  const csvData = `Annual Electricity_Quantity (MWh),Annual NaturalGas_Quantity (m3),Annual GHG Emissions (kgCO2e)
+  11173,598473,2702323`;
+
+// Parse CSV data
+  const parseCsvData = (csv) => {
+  const rows = csv.split('\n');
+  const headers = rows.shift().split(',');
+
+  return rows.map(row => {
+    const rowData = row.split(',');
+    return headers.reduce((obj, header, index) => {
+      obj[header] = rowData[index];
+      return obj;
+    }, {});
+  });
+}
+
+  const parsedData = parseCsvData(csvData);
+
   am4core.ready(function() {
   
-  // Themes begin
   am4core.useTheme(am4themes_animated);
-  // Themes end
   
   var chart = am4core.create("chartdiv", am4charts.RadarChart);
-  chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+  chart.hiddenState.properties.opacity = 0; 
   
   chart.data = [
     {
-      category: "HMMM",
-      value1: 8,
-      value2: 2,
-      value3: 4,
-      value4: 3
+      category: "Annual Electricity (Mwh)",
+      value1: parsedData[0]['Annual Electricity_Quantity (MWh)']
     },
     {
-      category: "EHHH",
-      value1: 11,
-      value2: 4,
-      value3: 2,
-      value4: 4
+      category: "Natural Gas (m^3)",
+      value1: parsedData[0]['Annual NaturalGas_Quantity (m3)']
     },
     {
-      category: "WOOO",
-      value1: 7,
-      value2: 6,
-      value3: 6,
-      value4: 2
+      category: "GHG (kgCO2e)",
+      value1: parsedData[0]['Annual GHG Emissions (kgCO2e)']
     }
   ];
   
-  //chart.padding(20, 20, 20, 20);
   chart.colors.step = 4;
   
   var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
@@ -64,7 +73,7 @@
   valueAxis.tooltip.disabled = true;
   valueAxis.renderer.labels.template.horizontalCenter = "left";
   valueAxis.min = 0;
-  valueAxis.max = 60;
+  valueAxis.max = 10000000;
   valueAxis.strictMinMax = true;
   valueAxis.renderer.maxLabelPosition = 0.99;
   valueAxis.renderer.minGridDistance = 10;
@@ -100,18 +109,11 @@
   series4.dataFields.valueX = "value4";
   series4.stacked = true;
   
-  chart.seriesContainer.zIndex = -1;
-  
-  chart.scrollbarX = new am4core.Scrollbar();
-  chart.scrollbarX.exportable = false;
-  chart.scrollbarY = new am4core.Scrollbar();
-  chart.scrollbarY.exportable = false;
-  
-  chart.cursor = new am4charts.RadarCursor();
-  chart.cursor.lineY.disabled = true;
-  
-  }); // end am4core.ready()
+  chart.exporting.menu = new am4core.ExportMenu();
+  chart.exporting.menu.align = "left";
+  chart.exporting.formatOptions.getKey("pdf").disabled = false;
+
+  });
   </script>
-  
-  <!-- HTML -->
+
   <div id="chartdiv"></div>

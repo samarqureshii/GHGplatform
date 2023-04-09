@@ -3,7 +3,7 @@ import numpy as np
 
 #headers are genres of the elements in a column
 headers = ["EWRB_ID", "Property-Type", "Organization", "Address", "Region", "Postal-Code", "Total-Indoor-Space-(sqft)", "Weekly-Average-Operating-Hours", "Annual-Electricity_Quantity-(kWh)", "Annual-NaturalGas_Quantity-(m3)", "Annual-GHG-Emissions-(kgCO2e)", "Energy-Intensity-(ekWh/sqft)", "Ener_Star_Certs"]
-df = pd.read_excel(r'C:\Users\Administrator\Desktop\projects\python\data.xlsx', names=headers) #fetch the database in the form of excel file
+df = pd.read_excel(r'database\data.xlsx', names=headers) #fetch the database in the form of excel file
 df.replace("?", np.nan, inplace = True) #replace missing data with NAN
 #change the unit of a column for better presentation
 df["Annual-Electricity_Quantity-(MWh)"] = df["Annual-Electricity_Quantity-(kWh)"]/1000 

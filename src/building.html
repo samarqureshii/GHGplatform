@@ -15,8 +15,8 @@
   <!-- Chart code -->
   <script>
   // Sample CSV data
-  const csvData = `Annual Electricity_Quantity (MWh),Annual NaturalGas_Quantity (m3),Annual GHG Emissions (kgCO2e)
-  11173,598473,2702323`;
+  const csvData = `Annual Electricity_Quantity (kWh),Annual NaturalGas_Quantity (m3),Annual GHG Emissions (kgCO2e)
+  11173000,598473,2702323`;
 
 // Parse CSV data
   const parseCsvData = (csv) => {
@@ -43,16 +43,22 @@
   
   chart.data = [
     {
-      category: "Annual Electricity (Mwh)",
-      value1: parsedData[0]['Annual Electricity_Quantity (MWh)']
+      category: "Annual Electricity (kwh)",
+      value1: parsedData[0]['Annual Electricity_Quantity (kWh)']/10,
+      value2: 1222200,
+      value3: 1028912
     },
     {
       category: "Natural Gas (m^3)",
-      value1: parsedData[0]['Annual NaturalGas_Quantity (m3)']
+      value1: parsedData[0]['Annual NaturalGas_Quantity (m3)'],
+      value2: 607890,
+      value3: 702381
     },
     {
       category: "GHG (kgCO2e)",
-      value1: parsedData[0]['Annual GHG Emissions (kgCO2e)']
+      value1: parsedData[0]['Annual GHG Emissions (kgCO2e)']/10,
+      value2: 3000012/10,
+      value3: 2701231/10
     }
   ];
   
@@ -83,31 +89,24 @@
   
   var series1 = chart.series.push(new am4charts.RadarColumnSeries());
   series1.columns.template.tooltipText = "{name}: {valueX.value}";
-  series1.name = "Series 1";
+  series1.name = "Distribution Center";
   series1.dataFields.categoryY = "category";
   series1.dataFields.valueX = "value1";
   series1.stacked = true;
   
   var series2 = chart.series.push(new am4charts.RadarColumnSeries());
   series2.columns.template.tooltipText = "{name}: {valueX.value}";
-  series2.name = "Series 2";
+  series2.name = "Comparison 1";
   series2.dataFields.categoryY = "category";
   series2.dataFields.valueX = "value2";
   series2.stacked = true;
   
   var series3 = chart.series.push(new am4charts.RadarColumnSeries());
   series3.columns.template.tooltipText = "{name}: {valueX.value}";
-  series3.name = "Series 3";
+  series3.name = "Comparison 2";
   series3.dataFields.categoryY = "category";
   series3.dataFields.valueX = "value3";
   series3.stacked = true;
-  
-  var series4 = chart.series.push(new am4charts.RadarColumnSeries());
-  series4.columns.template.tooltipText = "{name}: {valueX.value}";
-  series4.name = "Series 4";
-  series4.dataFields.categoryY = "category";
-  series4.dataFields.valueX = "value4";
-  series4.stacked = true;
   
   chart.exporting.menu = new am4core.ExportMenu();
   chart.exporting.menu.align = "left";

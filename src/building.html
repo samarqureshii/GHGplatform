@@ -1,8 +1,51 @@
-<!-- Styles -->
+
+<!DOCTYPE html>
+
+<a href="index.html">
+  <img src="toronto-logo.png" alt="city of toronto logo"></a>
+  <a href="https://www.toronto.ca/services-payments/water-environment/environmentally-friendly-city-initiatives/transformto/">
+    <p style="margin-left: 5;">Building Better Buildings&trade;</p></a>
+
+<link href="building.scss" rel="stylesheet">
+<link href="building.css" rel="stylesheet">
+<h1>Building Report for <b>100 QUEEN ST W</b>: </h1>
+
+<div class="tabs">
+  <input type="radio" name="tabs" id="tabone" checked="checked">
+  <label for="tabone">Electricity Quantity for 2022</label>
+  <div class="tab">
+    <p><b>Annual Electricity Quantity (kWh):</b> "DATA GOES HERE" </p>
+    <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
+    <li>Definition of this quantity</li>
+    <li>Suggestions to improve this quantity</li>
+  </div>
+  
+  <input type="radio" name="tabs" id="tabtwo">
+  <label for="tabtwo">Natural Gas Quantity for 2022</label>
+  <div class="tab">
+      <p><b>Annual Natural Gas Quantity (m^3)</b> "DATA GOES HERE" </p>  
+      <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
+      <li>Definition of this quantity</li>
+      <li>Suggestions to improve this quantity</li>
+  </div>
+  <input type="radio" name="tabs" id="tabthree">
+  <label for="tabthree">GHG Emissions for 2022</label>
+  <div class="tab">
+    <p><b>Annual GHG Emissions (kgCO2e): </b>"DATA GOES HERE" </p>
+    <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
+    <li>Definition of this quantity</li>
+    <li>Suggestions to improve this quantity</li>
+  </div>
+</div>
+
+<h1>How <b>100 QUEEN ST W</b> compares against similar buildings: </h1>
 <style>
   #chartdiv {
-    width: 100%;
-    height: 650px;
+    width: 50%;
+    height: 600px;
+    padding-top: 10px;
+    padding-left: 350px;
+
   }
   </style>
   
@@ -89,21 +132,21 @@
   
   var series1 = chart.series.push(new am4charts.RadarColumnSeries());
   series1.columns.template.tooltipText = "{name}: {valueX.value}";
-  series1.name = "Distribution Center";
+  series1.name = "100 QUEEN ST W";
   series1.dataFields.categoryY = "category";
   series1.dataFields.valueX = "value1";
   series1.stacked = true;
   
   var series2 = chart.series.push(new am4charts.RadarColumnSeries());
   series2.columns.template.tooltipText = "{name}: {valueX.value}";
-  series2.name = "Comparison 1";
+  series2.name = "275 MERTON ST";
   series2.dataFields.categoryY = "category";
   series2.dataFields.valueX = "value2";
   series2.stacked = true;
   
   var series3 = chart.series.push(new am4charts.RadarColumnSeries());
   series3.columns.template.tooltipText = "{name}: {valueX.value}";
-  series3.name = "Comparison 2";
+  series3.name = "255 SPADINA RD";
   series3.dataFields.categoryY = "category";
   series3.dataFields.valueX = "value3";
   series3.stacked = true;
@@ -116,3 +159,12 @@
   </script>
 
   <div id="chartdiv"></div>
+
+  <div class="btn-holder">
+    <button class="btn btn-1 hover-filled-opacity">
+      <a href = "map.html"><span>back to map</span></a> 
+    </button>
+  </div>
+
+  <a href="https://github.com/samarqureshii/GHGplatform"><p style="text-align:right">Copyright 2023 Team 146</p></a>
+</body>

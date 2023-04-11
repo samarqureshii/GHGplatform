@@ -766,3 +766,21 @@ img {
   .btn.hover-border-11 span:hover::after {
     height: 0%;
   }
+  .made-with {
+    background: #165788;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0;
+    padding: 5px 110px;
+    position: fixed;
+    top: 20px;
+    right: -100px;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(45deg);
+}
+.documentation {
+    color: #165788;
+}

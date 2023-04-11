@@ -617,8 +617,8 @@ body {
   }
   .btn.hover-border-10 span::before {
 	top: 0%; left: 0%;
-	border-top: 2px solid rgb(54, 56, 55);
-	border-right: 2px solid rgb(54, 56, 55);
+	border-top: 2px solid #165788;
+	border-right: 2px solid #165788;
 	transition: height 0.15s ease-in, width 0.2s 0.15s linear, opacity 0s 0.35s;   
   }
   .btn.hover-border-10 span:hover::before {

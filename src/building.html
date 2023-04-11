@@ -13,7 +13,7 @@
   <input type="radio" name="tabs" id="tabone" checked="checked">
   <label for="tabone">Electricity Quantity for 2022</label>
   <div class="tab">
-    <p><b>Annual Electricity Quantity (kWh):</b> "DATA GOES HERE" </p>
+    <p id="p1"><b>Annual Electricity Quantity (kWh):</b> "DATA GOES HERE" </p>
     <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
     <li>Definition of this quantity</li>
     <li>Suggestions to improve this quantity</li>
@@ -22,7 +22,7 @@
   <input type="radio" name="tabs" id="tabtwo">
   <label for="tabtwo">Natural Gas Quantity for 2022</label>
   <div class="tab">
-      <p><b>Annual Natural Gas Quantity (m^3)</b> "DATA GOES HERE" </p>  
+      <p id="p2"><b>Annual Natural Gas Quantity (m^3)</b> "DATA GOES HERE" </p>  
       <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
       <li>Definition of this quantity</li>
       <li>Suggestions to improve this quantity</li>
@@ -30,7 +30,7 @@
   <input type="radio" name="tabs" id="tabthree">
   <label for="tabthree">GHG Emissions for 2022</label>
   <div class="tab">
-    <p><b>Annual GHG Emissions (kgCO2e): </b>"DATA GOES HERE" </p>
+    <p id="p3"><b>Annual GHG Emissions (kgCO2e): </b>"DATA GOES HERE" </p>
     <li>This building ranks at the <b>xxth percentile</b> compared to similar buildings in <b>Downtown Toronto</b></li>
     <li>Definition of this quantity</li>
     <li>Suggestions to improve this quantity</li>
@@ -60,7 +60,7 @@
   const csvData = `Annual Electricity_Quantity (kWh),Annual NaturalGas_Quantity (m3),Annual GHG Emissions (kgCO2e)
   11173000,598473,2702323`;
 
-// Parse CSV data
+  // Parse CSV data
   const parseCsvData = (csv) => {
   const rows = csv.split('\n');
   const headers = rows.shift().split(',');
@@ -71,11 +71,13 @@
       obj[header] = rowData[index];
       return obj;
     }, {});
-  });
-}
-
+    });
+  }
+  
   const parsedData = parseCsvData(csvData);
-
+  document.getElementById("p1").innerHTML = "<b>Annual Electricity Quantity (kWh): </b> " + parsedData[0]['Annual Electricity_Quantity (kWh)'];
+  document.getElementById("p2").innerHTML = "<b>Annual Natural Gas Quantity (m^3): </b> " + parsedData[0]['Annual NaturalGas_Quantity (m3)'];
+  document.getElementById("p3").innerHTML = "<b>Annual GHG Emissions (kgCO2e): </b> " + parsedData[0]['Annual GHG Emissions (kgCO2e)'];
   am4core.ready(function() {
   
   am4core.useTheme(am4themes_animated);
